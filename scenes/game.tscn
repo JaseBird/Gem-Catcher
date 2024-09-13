@@ -21,4 +21,19 @@ position = Vector2(570, 586)
 wait_time = 2.0
 autostart = true
 
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 134.0
+offset_bottom = 91.0
+theme_override_colors/font_color = Color(0.299313, 0.640279, 0.563178, 1)
+theme_override_colors/font_shadow_color = Color(0.825538, 0.929173, 0.96683, 1)
+theme_override_colors/font_outline_color = Color(0.114036, 0.452228, 0.407589, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 48
+text = "000"
+
+[connection signal="area_entered" from="Paddle" to="." method="_on_paddle_area_entered"]
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

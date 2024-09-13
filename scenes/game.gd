@@ -1,6 +1,9 @@
 extends Node2D
 
 @export var gem_scene: PackedScene
+@onready var score_label: Label = $ScoreLabel
+
+var _score: int = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,3 +29,8 @@ func game_over() -> void:
 
 func _on_spawn_timer_timeout() -> void:
 	spawn_gem()
+
+
+func _on_paddle_area_entered(area: Area2D) -> void:
+	_score += 1
+	score_label.text = "%03d" % _score
