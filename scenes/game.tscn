@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://tg5h4cbfpvrh"]
+[gd_scene load_steps=5 format=3 uid="uid://tg5h4cbfpvrh"]
 
 [ext_resource type="Texture2D" uid="uid://btcf6joaw1fap" path="res://assets/GameBg.png" id="1_87exp"]
 [ext_resource type="Script" path="res://scenes/game.gd" id="1_kmgpv"]
 [ext_resource type="PackedScene" uid="uid://rvmrgdm87ltw" path="res://scenes/paddle.tscn" id="2_503eg"]
+[ext_resource type="PackedScene" uid="uid://bis6nlaixdd85" path="res://scenes/gem.tscn" id="2_tqacw"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_kmgpv")
+gem_scene = ExtResource("2_tqacw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(570, 318)
