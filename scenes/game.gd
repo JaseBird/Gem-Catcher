@@ -2,6 +2,7 @@ extends Node2D
 
 @export var gem_scene: PackedScene
 @onready var score_label: Label = $ScoreLabel
+@onready var spawn_timer: Timer = $SpawnTimer
 
 var _score: int = 0
 
@@ -23,8 +24,14 @@ func spawn_gem() -> void:
 	add_child(new_gem)
 
 
+func stop_all() -> void:
+	spawn_timer.stop()
+	for child in get_children():
+		child.set_process(false)
+
+
 func game_over() -> void:
-	print("game_over")
+	stop_all()
 
 
 func _on_spawn_timer_timeout() -> void:
@@ -33,5 +40,5 @@ func _on_spawn_timer_timeout() -> void:
 
 func _on_paddle_area_entered(area: Area2D) -> void:
 	_score += 1
-	score_label.text = "%03d" % _score
+	score_label.text = "%05d" % _score
 	area.queue_free()
