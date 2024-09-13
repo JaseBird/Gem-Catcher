@@ -5,6 +5,7 @@ const EXPLODE = preload("res://assets/explode.wav")
 @export var gem_scene: PackedScene
 
 @onready var score_label: Label = $ScoreLabel
+@onready var game_over_label: Label = $GameOverLabel
 @onready var spawn_timer: Timer = $SpawnTimer
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
@@ -31,6 +32,7 @@ func spawn_gem() -> void:
 func stop_all() -> void:
 	spawn_timer.stop()
 	play_gameover()
+	game_over_label.visible = true
 	for child in get_children():
 		child.set_process(false)
 
