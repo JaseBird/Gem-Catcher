@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://tg5h4cbfpvrh"]
+[gd_scene load_steps=5 format=3 uid="uid://tg5h4cbfpvrh"]
 
 [ext_resource type="Texture2D" uid="uid://btcf6joaw1fap" path="res://assets/GameBg.png" id="1_87exp"]
+[ext_resource type="Script" path="res://scenes/game.gd" id="1_kmgpv"]
 [ext_resource type="PackedScene" uid="uid://rvmrgdm87ltw" path="res://scenes/paddle.tscn" id="2_503eg"]
 [ext_resource type="PackedScene" uid="uid://bis6nlaixdd85" path="res://scenes/gem.tscn" id="3_o5hox"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_kmgpv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(570, 318)
@@ -16,3 +18,9 @@ position = Vector2(570, 586)
 
 [node name="Gem" parent="." instance=ExtResource("3_o5hox")]
 position = Vector2(711, 66)
+
+[node name="Gem2" parent="." instance=ExtResource("3_o5hox")]
+position = Vector2(424, 116)
+
+[connection signal="on_gem_off_screen" from="Gem" to="." method="_on_gem_off_screen"]
+[connection signal="on_gem_off_screen" from="Gem2" to="." method="_on_gem_off_screen"]
